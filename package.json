@@ -14,6 +14,7 @@
     "test": "vitest",
     "storybook": "storybook dev -p 6006",
     "storybook:test": "test-storybook",
+    "storybook:test:ci": "concurrently --kill-others --success=first --names='SB,TEST' 'npm run storybook --quiet --no-open' 'wait-on --delay=500 tcp:6006 && npm run storybook:test'",
     "build-storybook": "storybook build",
     "prepare": "husky"
   },
@@ -41,6 +42,7 @@
     "@types/react-dom": "^18.3.0",
     "@vanilla-extract/vite-plugin": "^4.0.15",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "concurrently": "^9.0.1",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
@@ -56,7 +58,8 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1",
-    "vitest": "^2.1.1"
+    "vitest": "^2.1.1",
+    "wait-on": "^8.0.1"
   },
   "eslintConfig": {
     "extends": [
