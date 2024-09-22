@@ -32,6 +32,9 @@ export const vars = createGlobalTheme(":root", {
     lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
   },
   colors: {
+    border: "#e2e8f0",
+    focus: "#e2e8f0",
+    ring: "#94a3b8",
     background: {
       primary: "#FFFFFF",
     },
