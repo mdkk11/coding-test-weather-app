@@ -38,11 +38,26 @@ export const vars = createGlobalTheme(":root", {
     background: {
       primary: "#FFFFFF",
       error: "#FFE4E1",
+      loading: "#D1D5DB",
     },
     text: {
       primary: "#1A1A1A",
       inverse: "#FFFFFF",
       error: "#8B0000",
+    },
+    weather: {
+      sunny: {
+        background: "#FACC15",
+      },
+      cloudy: {
+        background: "#708090",
+      },
+      rainy: {
+        background: "#4682B4",
+      },
+      snowy: {
+        background: "#4F94CD",
+      },
     },
   },
 })

@@ -1,5 +1,6 @@
 import { Suspense, useCallback, useState } from "react"
 
+import { useLocationContext } from "@/features/weather/providers/location/useLocationContext"
 import { useDebouncedValue } from "@/hooks"
 
 import * as Autocomplete from "../autocomplete"
@@ -10,10 +11,16 @@ export const Container = () => {
   const [inputLocation, setInputLocation] = useState<string>("")
   const [debouncedValue] = useDebouncedValue(inputLocation, 300)
 
-  const onClickHandler = useCallback((location: string) => {
-    setInputLocation(location)
-    setIsFocused(false)
-  }, [])
+  const { setLocation } = useLocationContext()
+
+  const onClickHandler = useCallback(
+    (location: string) => {
+      setLocation(location)
+      setInputLocation(location)
+      setIsFocused(false)
+    },
+    [setLocation],
+  )
 
   const handleFocus = useCallback(() => {
     setIsFocused(true)
