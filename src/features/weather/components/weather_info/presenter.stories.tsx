@@ -7,14 +7,14 @@ import { getWeatherCategory, transformWeatherInfoForCurrent } from "@/features/w
 
 import { Presenter } from "./presenter"
 
-const mockedCategory = getWeatherCategory(mock.forecast.forecastday[0].day.condition.code)
+const mockedCategory = getWeatherCategory(mock.current.condition.code)
 
 const meta = {
   title: "Features/Weather/WeatherInfo/Presenter",
   component: Presenter,
   args: {
     weatherCategory: mockedCategory,
-    weatherText: mock.forecast.forecastday[0].day.condition.text,
+    weatherText: mock.current.condition.text,
     weatherIcon: <WeatherIcon.Container weatherCategory={mockedCategory} />,
   },
 } satisfies Meta<typeof Presenter>
@@ -36,9 +36,7 @@ export const Sunny: Story = {
     weatherText: "Sunny",
     weatherIcon: <WeatherIcon.Container weatherCategory={"sunny"} />,
     weatherInfoDetailNode: (
-      <WeatherInfoDetail.Container
-        weatherInfo={transformWeatherInfoForCurrent(mock.forecast.forecastday[0].day)}
-      />
+      <WeatherInfoDetail.Container weatherInfo={transformWeatherInfoForCurrent(mock.current)} />
     ),
   },
 }
@@ -49,9 +47,7 @@ export const Cloudy: Story = {
     weatherText: "Cloudy",
     weatherIcon: <WeatherIcon.Container weatherCategory={"cloudy"} />,
     weatherInfoDetailNode: (
-      <WeatherInfoDetail.Container
-        weatherInfo={transformWeatherInfoForCurrent(mock.forecast.forecastday[0].day)}
-      />
+      <WeatherInfoDetail.Container weatherInfo={transformWeatherInfoForCurrent(mock.current)} />
     ),
   },
 }
@@ -61,9 +57,7 @@ export const Rainy: Story = {
     weatherText: "Rainy",
     weatherIcon: <WeatherIcon.Container weatherCategory={"rainy"} />,
     weatherInfoDetailNode: (
-      <WeatherInfoDetail.Container
-        weatherInfo={transformWeatherInfoForCurrent(mock.forecast.forecastday[0].day)}
-      />
+      <WeatherInfoDetail.Container weatherInfo={transformWeatherInfoForCurrent(mock.current)} />
     ),
   },
 }
@@ -74,9 +68,7 @@ export const Snowy: Story = {
     weatherText: "Snowy",
     weatherIcon: <WeatherIcon.Container weatherCategory={"snowy"} />,
     weatherInfoDetailNode: (
-      <WeatherInfoDetail.Container
-        weatherInfo={transformWeatherInfoForCurrent(mock.forecast.forecastday[0].day)}
-      />
+      <WeatherInfoDetail.Container weatherInfo={transformWeatherInfoForCurrent(mock.current)} />
     ),
   },
 }
