@@ -1,7 +1,10 @@
+import { Section } from "@/components/ui/Section"
+import * as LocationInput from "@/features/weather/components/location_input"
+
 export default function WeatherForecastPage() {
   return (
-    <section>
-      <p>Weather Forecast </p>
-    </section>
+    <Section>
+      <LocationInput.Container />
+    </Section>
   )
 }
