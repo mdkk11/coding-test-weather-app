@@ -37,10 +37,12 @@ export const vars = createGlobalTheme(":root", {
     ring: "#94a3b8",
     background: {
       primary: "#FFFFFF",
+      error: "#FFE4E1",
     },
     text: {
       primary: "#1A1A1A",
       inverse: "#FFFFFF",
+      error: "#8B0000",
     },
   },
 })
