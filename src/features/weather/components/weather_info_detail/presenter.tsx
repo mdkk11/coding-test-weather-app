@@ -19,7 +19,7 @@ export const Presenter = ({ ...props }: PresenterProps) => {
         {Object.entries(props.weatherInfo).map(([key, value]) => (
           <WeatherInfoListItem key={key}>
             <span className={styles.key}>{key} :</span>
-            <span>{value}</span>
+            <span>{value.toString()}</span>
           </WeatherInfoListItem>
         ))}
       </WeatherInfoList>
