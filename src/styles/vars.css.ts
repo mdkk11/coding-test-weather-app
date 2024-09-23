@@ -38,6 +38,7 @@ export const vars = createGlobalTheme(":root", {
     background: {
       primary: "#FFFFFF",
       error: "#FFE4E1",
+      loading: "#D1D5DB",
     },
     text: {
       primary: "#1A1A1A",
