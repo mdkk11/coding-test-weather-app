@@ -45,5 +45,19 @@ export const vars = createGlobalTheme(":root", {
       inverse: "#FFFFFF",
       error: "#8B0000",
     },
+    weather: {
+      sunny: {
+        background: "#FACC15",
+      },
+      cloudy: {
+        background: "#708090",
+      },
+      rainy: {
+        background: "#4682B4",
+      },
+      snowy: {
+        background: "#4F94CD",
+      },
+    },
   },
 })
