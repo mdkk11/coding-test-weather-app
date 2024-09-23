@@ -22,14 +22,6 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Current: Story = {
-  args: {
-    weatherInfoDetailNode: (
-      <WeatherInfoDetail.Container weatherInfo={transformWeatherInfoForCurrent(mock.current)} />
-    ),
-  },
-}
-
 export const Sunny: Story = {
   args: {
     weatherCategory: "sunny",
