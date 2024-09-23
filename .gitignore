@@ -23,4 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
+# Storybook
 *storybook.log
+
+# env
+.env
+
+# vercel
+.vercel
