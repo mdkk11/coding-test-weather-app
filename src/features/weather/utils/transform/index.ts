@@ -1,3 +1,4 @@
+import { Day } from "@/features/weather/models"
 import { Current } from "@/features/weather/models/common"
 
 export const transformWeatherInfoForCurrent = (current: Current) => {
@@ -21,5 +22,26 @@ export const transformWeatherInfoForCurrent = (current: Current) => {
     "UV Index": current.uv,
     "Gusts (mph)": current.gust_mph,
     "Gusts (kph)": current.gust_kph,
+  }
+}
+
+export const transformWeatherInfoForSpecificDay = (day: Day) => {
+  return {
+    "Max Temperature (°C)": day.maxtemp_c,
+    "Max Temperature (°F)": day.maxtemp_f,
+    "Min Temperature (°C)": day.mintemp_c,
+    "Min Temperature (°F)": day.mintemp_f,
+    "Average Temperature (°C)": day.avgtemp_c,
+    "Average Temperature (°F)": day.avgtemp_f,
+    "Max Wind Speed (mph)": day.maxwind_mph,
+    "Max Wind Speed (kph)": day.maxwind_kph,
+    "Total Precipitation (mm)": day.totalprecip_mm,
+    "Total Precipitation (in)": day.totalprecip_in,
+    "Average Visibility (km)": day.avgvis_km,
+    "Average Visibility (miles)": day.avgvis_miles,
+    "Average Humidity (%)": day.avghumidity,
+    "Chance of Rain (%)": day.daily_chance_of_rain,
+    "Chance of Snow (%)": day.daily_chance_of_snow,
+    "UV Index": day.uv,
   }
 }
