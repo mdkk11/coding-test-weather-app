@@ -3,7 +3,11 @@ import { Meta, StoryObj } from "@storybook/react"
 import * as WeatherIcon from "@/features/weather/components/common/weather_icon"
 import * as WeatherInfoDetail from "@/features/weather/components/weather_info_detail"
 import { mock } from "@/features/weather/services/forecast/mock"
-import { getWeatherCategory, transformWeatherInfoForCurrent } from "@/features/weather/utils"
+import {
+  getWeatherCategory,
+  transformWeatherInfoForCurrent,
+  transformWeatherInfoForSpecificDay,
+} from "@/features/weather/utils"
 
 import { Presenter } from "./presenter"
 
@@ -21,6 +25,24 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
+
+export const Current: Story = {
+  args: {
+    weatherInfoDetailNode: (
+      <WeatherInfoDetail.Container weatherInfo={transformWeatherInfoForCurrent(mock.current)} />
+    ),
+  },
+}
+
+export const SpecificDay: Story = {
+  args: {
+    weatherInfoDetailNode: (
+      <WeatherInfoDetail.Container
+        weatherInfo={transformWeatherInfoForSpecificDay(mock.forecast.forecastday[0].day)}
+      />
+    ),
+  },
+}
 
 export const Sunny: Story = {
   args: {

@@ -23,6 +23,9 @@ const meta = {
   args: {
     tableHead,
     tableBody,
+    linkProps: (date: string) => ({
+      to: { pathname: `/specific_date`, search: `?location=${mock.location.region}&date=${date}` },
+    }),
   },
   decorators: [
     (Story) => (
