@@ -1,5 +1,6 @@
 import { Suspense, useCallback, useState } from "react"
 
+import { useWeatherParams } from "@/features/weather/hooks"
 import { useLocationContext } from "@/features/weather/providers/location/useLocationContext"
 import { useDebouncedValue } from "@/hooks"
 
@@ -11,6 +12,8 @@ export const Container = () => {
   const [inputLocation, setInputLocation] = useState<string>("")
   const [debouncedValue] = useDebouncedValue(inputLocation, 300)
 
+  const { setSearchParams, date } = useWeatherParams({})
+
   const { setLocation } = useLocationContext()
 
   const onClickHandler = useCallback(
@@ -18,8 +21,9 @@ export const Container = () => {
       setLocation(location)
       setInputLocation(location)
       setIsFocused(false)
+      setSearchParams({ location, date })
     },
-    [setLocation],
+    [setLocation, setSearchParams, date],
   )
 
   const handleFocus = useCallback(() => {
