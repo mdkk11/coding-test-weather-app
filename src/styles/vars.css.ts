@@ -45,6 +45,10 @@ export const vars = createGlobalTheme(":root", {
       inverse: "#FFFFFF",
       error: "#8B0000",
     },
+    button: {
+      primary: "#000000",
+      text: "#FFFFFF",
+    },
     weather: {
       sunny: {
         background: "#FACC15",
