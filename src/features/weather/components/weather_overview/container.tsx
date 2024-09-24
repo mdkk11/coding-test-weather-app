@@ -1,4 +1,5 @@
 import * as LocationTitle from "@/features/weather/components/location_title"
+import * as WeatherForecast from "@/features/weather/components/weather_forecast"
 import * as WeatherInfo from "@/features/weather/components/weather_info"
 import * as WeatherInfoDetail from "@/features/weather/components/weather_info_detail"
 import { Day } from "@/features/weather/const"
@@ -26,9 +27,14 @@ export const Container = () => {
     children: <WeatherInfoDetail.Container {...weatherInfoCurrentProps} />,
   } satisfies WeatherInfo.ContainerProps
 
+  const weatherForecastProps = {
+    forecast: data.forecast,
+  } satisfies WeatherForecast.ContainerProps
+
   const presenterProps = {
     locationTitleNode: <LocationTitle.Container {...locationTitleProps} />,
     weatherInfoNode: <WeatherInfo.Container {...weatherInfoProps} />,
+    weatherForecastNode: <WeatherForecast.Container {...weatherForecastProps} />,
   } satisfies PresenterProps
   return <Presenter {...presenterProps} />
 }
