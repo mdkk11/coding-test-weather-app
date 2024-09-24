@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 
 import { Table, TBody, Td, Th, THead, Tr } from "@/components/ui/Table"
+import { LinkProps } from "@/hooks"
 import { format } from "@/utils"
 
 import * as styles from "./presenter.css"
@@ -8,6 +9,7 @@ import * as styles from "./presenter.css"
 export type PresenterProps = {
   tableHead: string[]
   tableBody: { code: number; icon: JSX.Element }[]
+  linkProps: (date: string) => LinkProps
 }
 
 export const Presenter = ({ ...props }: PresenterProps) => {
@@ -17,7 +19,7 @@ export const Presenter = ({ ...props }: PresenterProps) => {
         <Tr>
           {props.tableHead.map((v) => (
             <Th key={v.toString()}>
-              <Link className={styles.link} to={{ pathname: "/specific_day" }}>
+              <Link className={styles.link} {...props.linkProps(v)}>
                 {format(new Date(v), "MM/dd")}
               </Link>
             </Th>

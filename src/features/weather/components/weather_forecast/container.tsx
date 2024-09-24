@@ -1,8 +1,10 @@
 import { useMemo } from "react"
 
 import * as WeatherIcon from "@/features/weather/components/common/weather_icon"
+import { useWeatherParams } from "@/features/weather/hooks"
 import { Forecast } from "@/features/weather/models"
 import { getWeatherCategory } from "@/features/weather/utils"
+import { useLinkProps } from "@/hooks"
 import { format } from "@/utils"
 
 import { Presenter, PresenterProps } from "./presenter"
@@ -12,6 +14,8 @@ export type ContainerProps = {
 }
 
 export const Container = ({ ...props }: ContainerProps) => {
+  const { generateLinkProps } = useLinkProps()
+  const { location } = useWeatherParams({})
   const tableHead = useMemo(
     () => props.forecast.forecastday.filter((d) => isNotToday(d.date)).map((d) => d.date),
     [props.forecast.forecastday],
@@ -33,6 +37,8 @@ export const Container = ({ ...props }: ContainerProps) => {
   const presenterProps = {
     tableHead,
     tableBody,
+    linkProps: (date: string) =>
+      generateLinkProps({ pathname: "/specific_day", newParams: { location, date } }),
   } satisfies PresenterProps
 
   return <Presenter {...presenterProps} />
