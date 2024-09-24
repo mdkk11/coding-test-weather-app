@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react"
+import { BrowserRouter } from "react-router-dom"
 
 import * as LocationTitle from "@/features/weather/components/location_title"
+import * as WeatherForecast from "@/features/weather/components/weather_forecast"
 import * as WeatherInfo from "@/features/weather/components/weather_info"
 import * as WeatherInfoDetail from "@/features/weather/components/weather_info_detail"
 import { mock } from "@/features/weather/services/forecast/mock"
@@ -21,7 +23,15 @@ const meta = {
         }
       />
     ),
+    weatherForecastNode: <WeatherForecast.Container forecast={mock.forecast} />,
   },
+  decorators: [
+    (Story) => (
+      <BrowserRouter>
+        <Story />
+      </BrowserRouter>
+    ),
+  ],
 } satisfies Meta<typeof Presenter>
 export default meta
 

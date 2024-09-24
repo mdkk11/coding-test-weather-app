@@ -1,4 +1,5 @@
 import * as LocationTitle from "@/features/weather/components/location_title"
+import * as WeatherForecast from "@/features/weather/components/weather_forecast"
 import * as WeatherInfo from "@/features/weather/components/weather_info"
 
 import * as styles from "./loading.css"
@@ -8,6 +9,7 @@ export const Loading = () => {
     <div className={styles.module}>
       <LocationTitle.Loading />
       <WeatherInfo.Loading />
+      <WeatherForecast.Loading />
     </div>
   )
 }
