@@ -4,11 +4,11 @@ import { describe, expect, test } from "vitest"
 
 import * as stories from "./presenter.stories"
 
-const { Default } = composeStories(stories)
+const { Current } = composeStories(stories)
 
 describe("Features/Weather/WeatherInfoDetail/Presenter", () => {
   test("天気詳細情報のリストが表示される", () => {
-    render(<Default />)
+    render(<Current />)
     expect(screen.getByRole("list")).toBeInTheDocument()
   })
 })

@@ -1,7 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react"
 
 import { mock } from "@/features/weather/services/forecast/mock"
-import { transformWeatherInfoForCurrent } from "@/features/weather/utils"
+import {
+  transformWeatherInfoForCurrent,
+  transformWeatherInfoForSpecificDay,
+} from "@/features/weather/utils"
 
 import { Presenter } from "./presenter"
 import * as styles from "./story.css"
@@ -22,8 +25,14 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const Current: Story = {
   args: {
     weatherInfo: transformWeatherInfoForCurrent(mock.current),
+  },
+}
+
+export const SpecificDay: Story = {
+  args: {
+    weatherInfo: transformWeatherInfoForSpecificDay(mock.forecast.forecastday[0].day),
   },
 }
