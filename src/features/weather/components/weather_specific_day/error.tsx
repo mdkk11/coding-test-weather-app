@@ -1,9 +1,11 @@
+import { FallbackProps } from "react-error-boundary"
+
 import { Alert } from "@/components/ui/Alert"
 
-export const Error = () => {
+export const Error = (props: FallbackProps) => {
   return (
     <Alert>
-      <pre>Failed to fetch data</pre>
+      <pre>{props.error.message}</pre>
     </Alert>
   )
 }

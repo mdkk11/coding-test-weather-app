@@ -5,12 +5,18 @@ import * as WeatherInfo from "@/features/weather/components/weather_info"
 import * as WeatherInfoDetail from "@/features/weather/components/weather_info_detail"
 import { Day } from "@/features/weather/const/range"
 import { useQueryWeatherForecast, useWeatherParams } from "@/features/weather/hooks"
-import { transformWeatherInfoForSpecificDay, validateDayRange } from "@/features/weather/utils"
+import {
+  transformWeatherInfoForSpecificDay,
+  validateDateRange,
+  validateDayRange,
+} from "@/features/weather/utils"
+import { convertToTokyoTime } from "@/utils"
 
 import { Presenter, PresenterProps } from "./presenter"
 
 export const Container = () => {
   const { location, date } = useWeatherParams({})
+  validateDateRange(convertToTokyoTime(new Date(date)), convertToTokyoTime(new Date()), Day)
   const dateRange = validateDayRange(Day + 1)
   const { data } = useQueryWeatherForecast(location, dateRange)
 
